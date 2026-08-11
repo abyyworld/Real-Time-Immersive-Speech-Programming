@@ -275,6 +275,39 @@ even for the other.
 
 ## Troubleshooting
 
+**The panel never loads, or spins forever at `http://localhost:8181`**
+
+The server window was closed, or `Ctrl+C` was pressed in it. There is nothing
+serving the page.
+
+That window **is** the study. It is not a log of something running elsewhere —
+closing it stops the room server, the discovery beacon and the panel together.
+Leave it open for the whole session and minimise it if it is in the way. The
+last thing it prints is the address to open.
+
+Start it again and this time leave it alone:
+
+```
+%USERPROFILE%\say-it-again\study
+```
+
+**`The process cannot access the file because it is being used by another
+process`** when deleting a folder
+
+Something still has the folder open — an Explorer window sitting in it, Unity
+with the project loaded, an editor, or a `node` left over from an earlier run.
+`taskkill /f /im node.exe` clears the last of those; the others are found by
+closing windows one at a time, which is not worth anyone's afternoon.
+
+Do not fight it. Clone to a different name and carry on:
+
+```
+git clone --depth 1 https://github.com/abyyworld/say-it-again.git %USERPROFILE%\sia
+```
+
+Everything works from the new folder; adjust the paths in this guide to match.
+The stuck folder releases on the next restart, and can be deleted then.
+
 **`fatal: fetch-pack: invalid index-pack output`** while cloning
 **`fetch-pack: unexpected disconnect while reading sideband packet`**
 
